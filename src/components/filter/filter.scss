@@ -1,0 +1,35 @@
+.filter {
+    display: inline-block;
+    &__text {
+        display: inline;
+        margin-right: 35px;
+        width: 60px;
+    }
+    &__group{
+        display: inline-block;
+    }
+
+    &__wrapper{
+        display: flex;
+        width: 235px;
+        justify-content: space-between;
+    }
+
+    &__button {
+        width: 75px;
+        height: 30px;  
+        box-shadow: 5px 5px 10px rgba(146, 146, 146, 0.821);  
+        border: none;   
+        background-color: white;  
+        transition: all 0.5s;
+
+        &:hover{
+            background-color: rgb(236, 236, 236);
+            box-shadow: 5px 5px 15px rgba(146, 146, 146, 0.821);  
+        } 
+
+        .active {
+            background-color: rgb(236, 236, 236);  
+        }         
+    }
+}

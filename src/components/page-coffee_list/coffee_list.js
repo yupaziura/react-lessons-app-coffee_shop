@@ -3,6 +3,8 @@ import Header from "../header/header";
 import Article from "../article/article";
 import CardList from "../card-list/card-list";
 import Footer from '../footer/footer';
+import Filter from "../filter/filter";
+import Search from "../search/search";
 
 // styles
 import './coffee_list.scss';
@@ -54,6 +56,10 @@ const CoffeeList = () => {
             <div className="div"></div>
 
             <section className="list">
+                <div className="list__filter">
+                    <Search/>
+                    <Filter/>
+                </div>
                 <CardList data={data}/>
             </section>
 

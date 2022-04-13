@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
     {/* <MainPage /> */}
-    {/* <CoffeeList/> */}
-    <Pleasure/>
+    <CoffeeList/>
+    {/* <Pleasure/> */}
   </>
 );
