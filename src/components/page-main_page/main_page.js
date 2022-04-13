@@ -6,7 +6,8 @@ import Article from '../article/article';
 
 const MainPage = () => {
 
-    const textElem = (
+    const textElem = () => {
+        return(
         <p>
             Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
             Afraid a highly months do things on at. Situation recommend objection do intention
@@ -20,20 +21,31 @@ const MainPage = () => {
             recommend. Did even but nor are most gave hope. Secure active living depend son
             repair day ladies now.
         </p>
-    )
+        )
+    }
 
     return (
         <>
             <Header img={require ('../../img/background/main-bckgr.jpg')} 
                     header={"Everything You Love About Coffee"}
                     descr={<PageMainDescr/>}
+                    height={'640px'}
             />
         
-        <section className='article_section'>
-            <Article title={'About Us'}
-                     text={textElem}
-                     />
-        </section>
+            <section className='article_section'>
+                <Article title={'About Us'}
+                        text={textElem()}
+                        />
+            </section>
+
+            <section className="best_section">
+                    <div className="container">
+                        <h3 className="title">Our best</h3>
+                        <div className="cards">
+
+                        </div>
+                </div>
+            </section>
         </>
     )
 }
