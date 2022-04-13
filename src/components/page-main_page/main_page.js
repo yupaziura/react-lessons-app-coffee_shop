@@ -31,7 +31,7 @@ const MainPage = () => {
     return (
         <>
             <Header img={require ('../../img/background/main-bckgr.jpg')} 
-                    header={"Everything You Love About Coffee"}
+                    title={"Everything You Love About Coffee"}
                     descr={<PageMainDescr/>}
                     height={'640px'}
             />

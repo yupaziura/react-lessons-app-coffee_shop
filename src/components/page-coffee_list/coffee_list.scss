@@ -1,0 +1,22 @@
+.info {
+    height: 490px;
+
+
+    &__wrapper {
+        margin: 70px auto 0 auto;
+        width: 770px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.div{
+    margin: 0 auto;
+    width: 240px;
+    height: 1px;
+    background-color: black;
+}
+
+.list{
+    margin-bottom: 60px;
+}
