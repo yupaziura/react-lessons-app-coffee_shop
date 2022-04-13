@@ -1,0 +1,37 @@
+.header {
+    padding: 45px 150px 0 190px;
+    position: relative;
+    color: white;
+    height: 640px;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .logo {
+        display: inline-block;
+        position: absolute;
+        top: 30px;
+        left: 150px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        margin-right: 40px;
+    }
+
+    .title {
+        text-align: center;
+        font-family: 'Merienda';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        margin-top: 110px;
+    }
+
+}
+
