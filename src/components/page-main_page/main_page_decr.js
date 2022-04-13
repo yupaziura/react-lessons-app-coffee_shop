@@ -1,9 +1,6 @@
 // components
 import Divider from '../dividers/divider';
 
-// styles
-import './page_main.scss';
-
 const PageMainDescr = () => {
     return (
         <>

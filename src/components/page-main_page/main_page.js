@@ -3,7 +3,10 @@ import Header from '../header/header';
 import PageMainDescr from './main_page_decr';
 import Article from '../article/article';
 import Item from '../item/item';
+import Footer from '../footer/footer';
 
+// styles
+import './page_main.scss';
 
 const MainPage = () => {
 
@@ -58,6 +61,10 @@ const MainPage = () => {
                         </div>
                 </div>
             </section>
+
+            <footer>
+                <Footer/>
+            </footer>
         </>
     )
 }
