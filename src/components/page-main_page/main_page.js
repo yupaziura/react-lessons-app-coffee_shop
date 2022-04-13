@@ -2,6 +2,7 @@
 import Header from '../header/header';
 import PageMainDescr from './main_page_decr';
 import Article from '../article/article';
+import Item from '../item/item';
 
 
 const MainPage = () => {
@@ -42,7 +43,18 @@ const MainPage = () => {
                     <div className="container">
                         <h3 className="title">Our best</h3>
                         <div className="cards">
-
+                            <Item img ={require('../../img/cards/card-1.png')}
+                                  name={'Solimo Coffee Beans 2 kg'}
+                                  price={10.73}
+                            />
+                            <Item img ={require('../../img/cards/card-2.png')}
+                                  name={'Presto Coffee Beans 1 kg'}
+                                  price={15.99}
+                            />
+                            <Item img ={require('../../img/cards/card-3.png')}
+                                  name={'AROMISTICO Coffee 1 kg'}
+                                  price={6.99}
+                            />
                         </div>
                 </div>
             </section>
