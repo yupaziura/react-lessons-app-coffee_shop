@@ -9,7 +9,9 @@ class Filter extends Component {
     constructor (props) {
         super (props);
 
-
+        this.state = {
+            filter: ''
+        }
     }
 
     render () {
@@ -22,14 +24,29 @@ class Filter extends Component {
 
         const elems = list.map((item) => {
 
+            let activClass = ''
+
             const setValue = () => {
+                if (this.state.filter === item.name) {
+                    this.setState(() => {return {filter:''}})
+                }
+                else {
+                    this.setState(() => {return {filter: item.name}}) 
+                }
                 this.props.setFilter(item.name)
             }
 
+            if (this.state.filter === item.name) {
+                activClass = ' active'
+            }
+            else {
+                activClass = ''
+            }
+
             return (
-              <button className= {`filter__button`} 
+              <button className= {`filter__button ${activClass}`} 
                       key={item.id}
-                      onClick={setValue}
+                      onClick={()=>setValue()}
                       >{item.name}</button>  
             )
         })
