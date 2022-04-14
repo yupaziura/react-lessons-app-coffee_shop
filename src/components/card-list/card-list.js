@@ -11,6 +11,7 @@ const CardList = ({data}) => {
             <Card  name={item.name}
                    country={item.country}
                    price={item.price}
+                   key={item.id}
             />
         )
     })

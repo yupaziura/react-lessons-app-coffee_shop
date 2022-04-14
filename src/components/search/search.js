@@ -1,20 +1,46 @@
+// basic
+import {Component} from 'react';
+
 // styles
 import './search.scss';
 
 
 
-const Search = () => {
-    return (
-        <>
-            <div className="search">
+class Search extends Component {
 
-                <div className="search__text">Looking for</div>
+    constructor (props) {
+        super(props);
 
-                <input type="text" placeholder="star typing here"/>
-                
-            </div>
-        </>
-    )
+        this.state = {
+            value: ''
+        } 
+    }
+
+    setValue = (e) => {
+        const val = e.target.value;
+        console.log(val);
+        this.setState({value: val});
+        this.props.setSearch(val);
+    }
+
+    render() {
+        return (
+            <>
+                <div className="search">
+    
+                    <div className="search__text">Looking for</div>
+    
+                    <input type="text" 
+                           placeholder="star typing here"
+                           onChange={this.setValue}
+                           value={this.state.value}
+                           />
+                    
+                </div>
+            </>
+        )
+    
+    }
 }
 
 export default Search;

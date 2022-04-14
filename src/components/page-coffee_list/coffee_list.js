@@ -1,3 +1,6 @@
+// basic
+import { Component } from "react";
+
 // components
 import Header from "../header/header";
 import Article from "../article/article";
@@ -10,63 +13,95 @@ import Search from "../search/search";
 import './coffee_list.scss';
 
 
-const CoffeeList = () => {
+class CoffeeList extends Component {
 
-    const text = () => {
-        return (
-            <p>
-                Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
-                <br/> <br/>
-                Afraid at highly months do things on at. Situation recommend objection do intention
-                so questions. <br/>
-                As greatly removed calling pleased improve an. <br/> Last ask him cold feel
-                met spot shy want. Children me laughing we prospect answered followed. At it went
-                is song that held help face.
-            </p>
-        )
+    constructor (props) {
+        super(props);
+    
+        this.state = {
+            data:  [
+                {name:'MISTICO Coffee 1 kg', country: 'Brazil', price:6.99, id: 0},
+                {name:'MISTICO Coffee 2 kg', country: 'Columbia', price:7.99, id: 1},
+                {name:'AROMISTICO Coffee 3 kg', country: 'Kenya', price:6.99, id: 2},
+                {name:'Coffee 1 kg', country: 'Brazil', price:6.99, id: 3},
+                {name:'AROM Coffee 5 kg', country: 'Kenya', price:3.99, id: 4},
+                {name:'AROM Coffee 7 kg', country: 'Columbia', price:10.99, id: 5}
+            ],
+            search: ''
+        }
     }
 
-    const data = [
-        {name:'AROMISTICO Coffee 1 kg', country: 'Brazil', price:6.99},
-        {name:'AROMISTICO Coffee 1 kg', country: 'Columbia', price:7.99},
-        {name:'AROMISTICO Coffee 1 kg', country: 'Kenya', price:6.99},
-        {name:'AROMISTICO Coffee 1 kg', country: 'Brazil', price:6.99},
-        {name:'AROMISTICO Coffee 1 kg', country: 'Kenya', price:3.99},
-        {name:'AROMISTICO Coffee 1 kg', country: 'Columbia', price:10.99}
-    ];
+    onSearch = (data, text) => {
+        const newArr = data.filter((item) => {
+            return item.name.toLowerCase().includes(text.toLowerCase())
+        })
 
-    return (
-        <>
-            <Header img={require('../../img/background/our-coffee-bckgr.png')}
-                    title={'Our Coffee'}
-                    height={'260px'}
-            />
+        if (text.length === 0){
+            return data
+        }
+        else {
+            return newArr
+        }
+    }
 
-            <section className="info">
-                <div className="info__wrapper">
-                    <div>
-                        <img src={require('../../img/photos/our-beans.png')} alt="" />
+    setSearch = (text) => {
+        return this.setState({search: text})
+    }
+
+
+    render () {
+
+        const newData = this.onSearch(this.state.data, this.state.search)
+
+        const text = () => {
+            return (
+                <p>
+                    Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
+                    <br/> <br/>
+                    Afraid at highly months do things on at. Situation recommend objection do intention
+                    so questions. <br/>
+                    As greatly removed calling pleased improve an. <br/> Last ask him cold feel
+                    met spot shy want. Children me laughing we prospect answered followed. At it went
+                    is song that held help face.
+                </p>
+            )
+        }
+    
+    
+        return (
+            <>
+                <Header img={require('../../img/background/our-coffee-bckgr.png')}
+                        title={'Our Coffee'}
+                        height={'260px'}
+                />
+    
+                <section className="info">
+                    <div className="info__wrapper">
+                        <div>
+                            <img src={require('../../img/photos/our-beans.png')} alt="" />
+                        </div>
+                        <Article title ={'About our beans'}
+                                 text={text()}
+                        />
                     </div>
-                    <Article title ={'About our beans'}
-                             text={text()}
-                    />
-                </div>
-            </section>
+                </section>
+    
+                <div className="div"></div>
+    
+                <section className="list">
+                    <div className="list__filter">
+                        <Search setSearch={this.setSearch}/>
+                        <Filter/>
+                    </div>
+                    <CardList data={newData}/>
+                </section>
+    
+                <Footer/>
+    
+            </>
+        )    
+    }
 
-            <div className="div"></div>
-
-            <section className="list">
-                <div className="list__filter">
-                    <Search/>
-                    <Filter/>
-                </div>
-                <CardList data={data}/>
-            </section>
-
-            <Footer/>
-
-        </>
-    )
 }
 
 export default CoffeeList;
