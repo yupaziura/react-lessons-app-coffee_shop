@@ -27,7 +27,8 @@ class CoffeeList extends Component {
                 {name:'AROM Coffee 5 kg', country: 'Kenya', price:3.99, id: 4},
                 {name:'AROM Coffee 7 kg', country: 'Columbia', price:10.99, id: 5}
             ],
-            search: ''
+            search: '',
+            filter: ''
         }
     }
 
@@ -48,10 +49,31 @@ class CoffeeList extends Component {
         return this.setState({search: text})
     }
 
+    onFilter = (data, filter) => {
+        const newArr = data.filter(item => {
+            return item.country === filter
+        })
+        if (filter) {
+            return newArr
+        }
+        else {
+            return data
+        }
+    }
+
+    setFilter = (filter) => {
+        if (this.state.filter === filter) {
+            return this.setState({filter: ''}) 
+        }
+        else {
+            return this.setState({filter: filter})
+        }
+    } 
+
 
     render () {
 
-        const newData = this.onSearch(this.state.data, this.state.search)
+        const newData =  this.onFilter(this.onSearch(this.state.data, this.state.search), this.state.filter)
 
         const text = () => {
             return (
@@ -91,7 +113,7 @@ class CoffeeList extends Component {
                 <section className="list">
                     <div className="list__filter">
                         <Search setSearch={this.setSearch}/>
-                        <Filter/>
+                        <Filter setFilter={this.setFilter}/>
                     </div>
                     <CardList data={newData}/>
                 </section>
