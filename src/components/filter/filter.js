@@ -53,7 +53,7 @@ class Filter extends Component {
 
         return (
             <>
-                <div className="filter">
+                <div className="filter" id='list_filter'>
                     <div className="filter__text">Or filter</div>
     
                     <div className="filter__group">

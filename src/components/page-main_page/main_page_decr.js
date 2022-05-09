@@ -1,5 +1,9 @@
+import { NavLink } from 'react-router-dom';
+
 // components
 import Divider from '../dividers/divider';
+
+import './page_main.scss'
 
 const PageMainDescr = () => {
     return (
@@ -11,7 +15,11 @@ const PageMainDescr = () => {
                 Want to try our beans?</div>
 
 
-            <button className='descr__button'>More</button>
+            <button className='descr__button'>
+                <NavLink className='more' end to='/coffeelist'>
+                    More
+                </NavLink>
+            </button>
         </>
     )
 }
