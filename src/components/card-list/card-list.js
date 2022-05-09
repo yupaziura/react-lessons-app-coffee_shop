@@ -6,12 +6,12 @@ import './card-list.scss';
 
 const CardList = ({data}) => {
 
-    const elems = data.map((item) => {
+    const elems = data.map((item, i) => {
         return (
             <Card  name={item.name}
                    country={item.country}
                    price={item.price}
-                   key={item.id}
+                   key={i}
             />
         )
     })
